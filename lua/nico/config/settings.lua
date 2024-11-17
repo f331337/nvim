@@ -23,3 +23,5 @@ o.inccommand = "split"
 o.splitright = true
 o.splitbelow = true
 o.termguicolors = true
+
+require('mini.statusline').setup()
