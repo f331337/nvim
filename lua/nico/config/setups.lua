@@ -15,3 +15,7 @@ require('nvim-ts-autotag').setup({
     }
   }
 })
+
+require('venv-selector').setup {
+  poetry_path = '/home/nico/.cache/pypoetry/virtualenvs',
+}
