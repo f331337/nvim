@@ -16,3 +16,6 @@ require('nvim-ts-autotag').setup({
   }
 })
 
+-- blackline indent 
+
+require("ibl").setup()
