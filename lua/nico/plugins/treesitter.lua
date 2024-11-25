@@ -32,7 +32,8 @@ return {
         "c",
         "rust",
         "python",
-        "toml"
+        "toml",
+        "yaml"
       },
       incremental_selection = {
         enable = true,
