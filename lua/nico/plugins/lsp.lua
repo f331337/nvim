@@ -76,16 +76,16 @@ return {
           vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
           vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
           vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-          vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+          vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
           vim.keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-          vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+          vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         end,
       })
 
       local util = require("lspconfig.util")
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'pyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
+        ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
@@ -101,6 +101,15 @@ return {
                     or util.find_node_modules_ancestor(fname)
                     or util.find_git_ancestor(fname)
               end
+            })
+          end,
+          basedpyright = function()
+            require('lspconfig').basedpyright.setup({
+              settings = {
+                basedpyright = {
+                  typeCheckingMode = "strict",
+                },
+              },
             })
           end,
         }
