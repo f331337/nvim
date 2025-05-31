@@ -90,6 +90,7 @@ return {
       local util = require("lspconfig.util")
 
       require('mason-lspconfig').setup({
+        automatic_enable = false,
         ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
         handlers = {
           -- this first function is the "default handler"
