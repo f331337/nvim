@@ -112,7 +112,7 @@ return {
             require('lspconfig').basedpyright.setup({
               settings = {
                 basedpyright = {
-                  typeCheckingMode = "strict",
+                  typeCheckingMode = "standard",
                 },
               },
             })
