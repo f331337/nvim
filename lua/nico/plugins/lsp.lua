@@ -84,6 +84,10 @@ return {
           vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
           vim.keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
           vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+          vim.keymap.set('n', '<leader>b', function()
+            vim.diagnostic.open_float(nil, { focusable = false, border = 'rounded' })
+          end, opts)
         end,
       })
 
@@ -93,7 +97,7 @@ return {
         automatic_enable = false,
         ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
         handlers = {
-          -- this first function is the "default handler"
+         -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
             require('lspconfig')[server_name].setup({})

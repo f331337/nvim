@@ -44,7 +44,7 @@ require('bookmarks').setup {
 }
 
 require('telescope').load_extension('bookmarks')
--- require('telescope').load_extension('lsp_handlers') 
+-- require('telescope').load_extension('lsp_handlers')
 
 require("catppuccin").setup({
   flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -54,7 +54,7 @@ require("catppuccin").setup({
   },
   transparent_background = true, -- disables setting the background color.
   show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-  term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
+  term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
   dim_inactive = {
     enabled = false,             -- dims the background color of inactive window
     shade = "dark",
@@ -98,5 +98,5 @@ require("catppuccin").setup({
 -- setup must be called before loading
 --
 --
--- vim.cmd.colorscheme "catppuccin"
-vim.cmd.colorscheme "tokyodark"
+vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "tokyodark"
