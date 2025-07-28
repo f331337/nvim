@@ -5,7 +5,8 @@ return {
     { "<leader>/",  false },
     -- change a keymap
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    -- add a keymap to browse plugin files
+    { "<leader>fg", "<cmd>Telescope grep_string<cr>", desc = "Find Word" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     {
       "<leader>fp",
       function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
