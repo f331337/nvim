@@ -21,6 +21,7 @@ return {
       cmp.setup({
         sources = {
           { name = 'nvim_lsp' },
+          { name = 'orgmode' }
         },
         preselect = 'item',
         completion = {
@@ -97,7 +98,7 @@ return {
         automatic_enable = false,
         ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
         handlers = {
-         -- this first function is the "default handler"
+          -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -121,6 +122,10 @@ return {
                 },
               },
             })
+          end,
+          lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+              settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
           end,
         }
       })
