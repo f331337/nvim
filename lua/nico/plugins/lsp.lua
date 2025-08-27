@@ -96,7 +96,7 @@ return {
 
       require('mason-lspconfig').setup({
         automatic_enable = false,
-        ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff" },
+        ensure_installed = { 'basedpyright', 'biome', 'ts_ls', 'lua_ls', "ruff", "html" },
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
@@ -127,6 +127,15 @@ return {
             require('lspconfig').lua_ls.setup({
               settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
           end,
+          html = function()
+            require('lspconfig').html.setup({
+              filetypes = { "html" },
+              init_options = {
+                provideFormatter = true,
+              },
+            })
+          end,
+
         }
       })
     end
