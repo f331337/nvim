@@ -135,6 +135,10 @@ return {
               },
             })
           end,
+          elixirls = function()
+            require('lspconfig').elixirls.setup({
+              cmd = { "/home/nico/.elixir-ls/language_server.sh" } })
+          end
 
         }
       })

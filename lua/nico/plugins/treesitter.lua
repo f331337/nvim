@@ -10,7 +10,7 @@ return {
 
     treesitter.setup({
       highlight = {
-        enable = false,
+        enable = true,
         additional_vim_regex_highlighting = false,
       },
       indent = { enable = true },
@@ -33,10 +33,10 @@ return {
         "rust",
         "python",
         "toml",
-        "yaml"
+        "yaml",
+        "elixir"
       },
-      incremental_selection = {
-        enable = true,
+      incremental_selection = { enable = true,
         keymaps = {
           init_selection = "<C-space>",
           node_incremental = "<C-space>",
